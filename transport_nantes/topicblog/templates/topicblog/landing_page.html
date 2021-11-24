@@ -1,0 +1,63 @@
+{% extends 'topicblog/content.html' %}
+{% load static %}
+{% load mpanels %}
+{% load newsletter %}
+{% load markdown %}
+{% load don %}
+
+{% block navbar %}
+    {{ block.super}}
+
+<div class="page-holder bg-cover">
+
+    <div class="container py-5 mt-n5">
+        {% comment %} the close span is the cross hide the banner{% endcomment %}
+        <span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'>x</span>
+        <header class="text-center py-5">
+            <h1 class="display-4 font-weight-bold">SOUTENEZ NOUS</h1>
+        </header>
+
+        <p class="cf_text">⏰ C’est l’heure … nous lançons notre collecte de fonds d’hiver pour une meilleure mobilité
+        ! Investir dans cette campagne, c’est œuvrer collectivement pour améliorer nos conditions de déplacements tout
+        en réduisant ses impôts ! <br/>
+        C'est grâce à vous que nous pouvons continuer à militer en toute indépendance !
+        </p>
+
+        <a href="/crowdfunding-2021" class="d-flex col-6 col-sm-4 col-lg-2 text-center btn donation-button mx-auto"><span class="d-flex m-auto">Faire un don</span></a>
+
+    </div>
+</div>
+{% endblock navbar %}
+
+
+{% block content %}
+    {{ block.super }}
+
+{% block app_content %}
+
+    <div id="cards_holder" class="container d-flex justify-content-around flex-wrap ">
+        <div id="card_velorution_1" class="card mb-4 velorution-cards" style="width: 24rem;">
+            <img class="card-img-top" height="254" src="{% static 'asso_tn/crowdfunding_2021/00-heroimage-crowdfunding.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Lancement de la campagne de crowdfunding</h5>
+                <p class="card-text">Donnons pour faire bouger les lignes de la mobilité !
+                Les Mobilitains s’engage à agir, à militer pour et avec les citoyens en déplacement.
+                </p>
+                <div class="spacer"></div>
+                <span class="bottom-button"><a href='l/crowdfunding-2021' class="btn donation-button">Je participe !</a></span>
+            </div>
+        </div>
+
+        <div id="card_velorution_2" class="card mb-4 velorution-cards" style="width: 24rem;">
+            <img class="card-img-top" src="{% static 'asso_tn/pont-saint-mihiel-hero.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Réouverture du pont Saint-Mihiel</h5>
+                <p class="card-text">Une mobilité qui ne va pas de l’avant ! Les Mobilitains restent sur le pont et vous ?</p>
+                <div class="spacer"></div>
+                 <span class="bottom-button"><a href='{% url "topic_blog:view_item_by_slug" "pont-saint-mihiel-velorution-mars" %}' class="btn donation-button">En savoir plus <i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+{% endblock app_content %}
+
+{% endblock content %}
